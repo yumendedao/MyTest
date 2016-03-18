@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- <properties resource="funddata.properties"/> -->
+	<environments default="MyTest">
+		<environment id="MyTest">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${jdbc.driver}" />
+				<property name="url" value="${jdbc.url}" />
+				<property name="username" value="${jdbc.username}" />
+				<property name="password" value="${jdbc.password}" />
+
+				<property name="poolMaximumActiveConnections" value="200" />
+				<property name="poolMaximumIdleConnections" value="8" />
+				<property name="poolMaximumCheckoutTime" value="30000" />
+				<property name="poolTimeToWait" value="30000" />
+				<property name="poolPingQuery" value="select 1" />
+				<property name="poolPingEnabled" value="true" />
+				<property name="defaultAutoCommit" value="false" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<mapper resource="cn/jiudao/mapper/mssql/Borrow.xml" />
+		<mapper resource="cn/jiudao/mapper/mssql/Book.xml" />
+		<mapper resource="cn/jiudao/mapper/mssql/User.xml" />
+		<mapper resource="wx/xql/mapper/mssql/q.xml" />
+	</mappers>
+</configuration>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xql xmlns="http://winix.name/schema/xql" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://winix.name/schema/xql http://winix.name/schema/xql-3.xsd"
+	name="test_user" author="guxingchun" version="1.0">
+	
+<!-- 	<property name="ddl.null" value="false"/> -->
+	<property name="table.prefix" value="tb_"/>
+	<property name="index.prefix" value="idx_"/>
+	<property name="sequence.prefix" value="seq_"/>
+
+	<property name="encoding" value="UTF-8"/>
+	<property name="package" value="cn.jiudao.domain.jwms"/>
+	<property name="package.criteria" value="cn.jiudao.criteria.jwms"/>
+	<property name="package.mapper" value="cn.jiudao.mapper.jwms"/>
+
+	<include url="classpath:/cn/jiudao/schema/types.xml"/>
+	
+	<table name="user" columnPrefix="user_" descr="用户">
+		<int name="id" key="primary" descr="用户id" />
+		<varchar name="name" length="20" descr="用户名" />
+		<varchar name="account" length="20" descr="账号" />
+		<varchar name="password" length="20" descr="用户密码" />
+		<datetime name="logindate" null="true"  descr="注册日期"></datetime>
+		<int name="role" descr="角色"></int>
+	</table>
+	
+	<table name="book" columnPrefix="book_" descr="图书">
+		<int name="id" key="primary" descr="图书id"/>
+		<varchar name="number" length="20" descr="图书id" />
+		<varchar name="name" length="20" descr="图书名称" />
+		<varchar name="count" length="20" descr="图书数量" />
+		<datetime name="time" descr="出版时间" />		
+	</table>
+	
+	<table name="borrow" columnPrefix="borrow_" descr="借书">
+		<int name="id" key="primary" descr="借书id" />
+		<datetime name="borrow_time"  descr="借书日期" />
+		<datetime name="borrow_backtime" descr="还书日期" />
+<!-- 		<foreignkey name="book" columns="id" table="book"></foreignkey>	 -->
+	</table>
+</xql>
